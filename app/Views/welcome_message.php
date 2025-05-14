@@ -12,16 +12,15 @@
 	<style>
 		h1{
 			margin-top:100px;
+			margin-left:45%;
 		}
 	</style>
 </head>
 <body>
-
-<!-- HEADER: MENU + HEROE SECTION -->
+ 
 <div>
 	<h1>Hello World!</h1>
 	</div>
-<!-- FOOTER: DEBUG INFO + COPYRIGHTS -->
 
 
 <!-- SCRIPTS -->
