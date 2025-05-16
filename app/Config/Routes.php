@@ -33,10 +33,14 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Landing::index'); 
+$routes->get('/login', 'AuthController::index');
+$routes->post('/login', 'AuthController::login');
+$routes->get('/logout', 'AuthController::logout');
+$routes->get('/dashboard', 'DashboardController::index'); // You can make a placeholder
 
 
 /*
- * --------------------------------------------------------------------
+---------------------------------------
  * Additional Routing
  * --------------------------------------------------------------------
  *

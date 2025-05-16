@@ -41,7 +41,7 @@
           </div>
 
           <?php if(session()->getFlashdata('error')): ?>
-            <div class="text-red-600 text-sm mb-2">
+            <div class="text-red-600 text-sm mb-2 notif">
               <?= session()->getFlashdata('error') ?>
             </div>
           <?php endif; ?>
@@ -60,5 +60,9 @@
 
   </div>
 </body>
+
+<script>
+	
+</script>
 
 </html>
