@@ -15,7 +15,7 @@
     </div>
 
     <!-- Right side (1/3 login) -->
-    <div class="w-full lg:w-1/3 flex items-center justify-center bg-white p-8 ml-auto">
+    <div class="w-full lg:w-1/4 flex items-center justify-center bg-white p-8 ml-auto">
       <div class="max-w-md w-full space-y-8">
 	  	<div>
           <h1 class="text-center text-2xl font-extrabold text-gray-900">Richeese Uniform Management</h1>

@@ -19,11 +19,7 @@ class AuthController extends BaseController
         $password = $this->request->getPost('password');
     
         $user = $model->where('username', $username)->first();
-        // var_dump($user);
-        // echo 'Password: ' . $password;
-        // echo 'Hash: ' . $user['password'];
-        // echo password_hash("123456", PASSWORD_DEFAULT);
-        // die();
+
 
         if ($user && isset($user['password'])) {
             if (password_verify($password, $user['password'])) {

@@ -38,6 +38,9 @@ $routes->post('/login', 'AuthController::login');
 $routes->get('/logout', 'AuthController::logout');
 $routes->get('/dashboard', 'DashboardController::index'); // You can make a placeholder
 
+$routes->get('/dashboard/admin', 'DashboardController::admin');
+$routes->get('/dashboard/user', 'DashboardController::user');
+
 
 /*
 ---------------------------------------
