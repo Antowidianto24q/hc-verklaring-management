@@ -6,32 +6,18 @@ class DashboardController extends BaseController
 {
     public function index()
     {
-        if (!session()->get('isLoggedIn')) {
-            return redirect()->to('/');
-        }
-
-        $level = session()->get('level');
-        if ($level === 'admin') {
-            return redirect()->to('/dashboard/admin');
-        } else {
-            return redirect()->to('/dashboard/user');
-        }
+        return redirect()->to(
+            session()->get('level') === 'admin' ? '/admin-dashboard' : '/user-dashboard'
+        );
     }
 
     public function admin()
     {
-        if (!$this->authorize('admin')) return redirect()->to('/');
-        return view('dashboard/admin');
+        return view('dashboard/admin', ['title' => 'Admin Dashboard']);
     }
 
     public function user()
     {
-        if (!$this->authorize('user')) return redirect()->to('/');
-        return view('dashboard/user');
-    }
-
-    private function authorize($role)
-    {
-        return session()->get('isLoggedIn') && session()->get('level') === $role;
+        return view('dashboard/user', ['title' => 'User Dashboard']);
     }
 }

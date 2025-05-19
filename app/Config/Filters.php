@@ -15,11 +15,18 @@ class Filters extends BaseConfig
 	 *
 	 * @var array
 	 */
+	// public $aliases = [
+	// 	'csrf'     => CSRF::class,
+	// 	'toolbar'  => DebugToolbar::class,
+	// 	'honeypot' => Honeypot::class,
+	// ];
+
 	public $aliases = [
-		'csrf'     => CSRF::class,
-		'toolbar'  => DebugToolbar::class,
-		'honeypot' => Honeypot::class,
+		'csrf'     => \CodeIgniter\Filters\CSRF::class,
+		'toolbar'  => \CodeIgniter\Filters\DebugToolbar::class,
+		'role'     => \App\Filters\RoleFilter::class, // Add this line
 	];
+	
 
 	/**
 	 * List of filter aliases that are always
@@ -59,4 +66,7 @@ class Filters extends BaseConfig
 	 * @var array
 	 */
 	public $filters = [];
+
+	
 }
+

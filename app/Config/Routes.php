@@ -35,11 +35,29 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Landing::index'); 
 $routes->get('/login', 'AuthController::index');
 $routes->post('/login', 'AuthController::login');
-$routes->get('/logout', 'AuthController::logout');
-$routes->get('/dashboard', 'DashboardController::index'); // You can make a placeholder
-
+$routes->get('/dashboard', 'DashboardController::index');
 $routes->get('/dashboard/admin', 'DashboardController::admin');
 $routes->get('/dashboard/user', 'DashboardController::user');
+$routes->get('/logout', 'AuthController::logout');
+
+$routes->get('/profile', 'ProfileController::index');
+$routes->post('/profile/change-password', 'ProfileController::updatePassword');
+
+// Dashboard route with role-based filter
+$routes->get('/dashboard', 'DashboardController::index', ['filter' => 'role:admin,user']);
+$routes->get('/admin-dashboard', 'DashboardController::admin', ['filter' => 'role:admin']);
+$routes->get('/user-dashboard', 'DashboardController::user', ['filter' => 'role:user']);
+
+
+$routes->group('admin', ['filter' => 'role:admin'], function($routes) {
+    $routes->get('users', 'Admin\UserController::index');
+    $routes->get('users/create', 'Admin\UserController::create');
+    $routes->post('users/store', 'Admin\UserController::store');
+    $routes->get('users/edit/(:num)', 'Admin\UserController::edit/$1');
+    $routes->post('users/update/(:num)', 'Admin\UserController::update/$1');
+    $routes->get('users/delete/(:num)', 'Admin\UserController::delete/$1');
+});
+
 
 
 /*
