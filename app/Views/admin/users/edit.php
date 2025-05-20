@@ -1,4 +1,4 @@
-<?= $this->extend('layouts/dashboard') ?>
+<?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
 
 <h1 class="text-xl font-bold mb-4">Edit User</h1>

@@ -1,4 +1,4 @@
-<?= $this->extend('layouts/dashboard') ?>
+<?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
 
 <h1 class="text-2xl font-bold mb-4">My Profile</h1>
