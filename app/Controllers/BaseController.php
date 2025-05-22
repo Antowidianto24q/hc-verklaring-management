@@ -50,6 +50,7 @@ class BaseController extends Controller
 			$userId = session()->get('user_id');
 			$userModel = new \App\Models\UserModel();
 			$this->userData = $userModel->getUserWithProfile($userId);
+			
  			\Config\Services::renderer()->setData(['profile' => $this->userData]);
 
 		}
