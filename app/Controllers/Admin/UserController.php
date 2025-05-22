@@ -38,8 +38,7 @@ class UserController extends BaseController
         return redirect()->to('/admin/users')->with('success', 'User created successfully.');
     }
 
-    public function edit($id)
-    {
+    public function edit($id){
         $user = $this->userModel->find($id);
         return view('admin/users/edit', ['user' => $user]);
     }
