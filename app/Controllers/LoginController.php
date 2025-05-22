@@ -5,15 +5,13 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\UserModel;
 
-class AuthController extends BaseController
+class LoginController extends BaseController
 {
-    public function index()
-    {
+    public function index(){
         return view('index');
     }
 
-    public function login()
-    {
+    public function login(){
         $model = new UserModel();
         $username = $this->request->getPost('username');
         $password = $this->request->getPost('password');
@@ -28,6 +26,7 @@ class AuthController extends BaseController
         if ($user && isset($user['password'])) {
             if (password_verify($password, $user['password'])) {
                 session()->set([
+                    'user_id' => $user['id'],
                     'username' => $user['username'],
                     'level'    => $user['level'],
                     'isLoggedIn' => true
@@ -42,8 +41,7 @@ class AuthController extends BaseController
     }
     
 
-    public function logout()
-    {
+    public function logout(){
         session()->destroy();
         return redirect()->to('/');
     }
