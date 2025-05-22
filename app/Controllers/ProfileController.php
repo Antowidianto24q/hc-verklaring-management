@@ -10,11 +10,20 @@ class ProfileController extends BaseController
     public function index()
     {
         if (!session('isLoggedIn')) {
-            return redirect()->to('/login');
+            return redirect()->to('/');
         }
 
-        return view('profile/index', ['title' => 'Your Profile']);
+        $userId = session('user_id');
+        $userModel = new UserModel();
+        $userData = $userModel->getUserWithProfile($userId);
+        // var_dump($userData); 
+        // die();
+        return view('profile/index', [
+            'title' => 'My Profile',
+            'user'  => $userData,
+        ]);
     }
+
 
     public function updatePassword()
     {

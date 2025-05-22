@@ -33,14 +33,15 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Landing::index'); 
-$routes->get('/login', 'AuthController::index');
-$routes->post('/login', 'AuthController::login');
+$routes->get('/login', 'LoginController::index');
+$routes->post('/login', 'LoginController::login');
 $routes->get('/dashboard', 'DashboardController::index');
 $routes->get('/dashboard/admin', 'DashboardController::admin');
 $routes->get('/dashboard/user', 'DashboardController::user');
-$routes->get('/logout', 'AuthController::logout');
+$routes->get('/logout', 'LoginController::logout');
 
 $routes->get('/profile', 'ProfileController::index');
+$routes->get('/profile', 'ProfileController::header');
 $routes->post('/profile/change-password', 'ProfileController::updatePassword');
 
 // Dashboard route with role-based filter

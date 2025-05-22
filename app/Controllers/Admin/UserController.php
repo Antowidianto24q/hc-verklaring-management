@@ -17,12 +17,12 @@ class UserController extends BaseController
     public function index()
     {
         $users = $this->userModel->findAll();
-        return view('admin/users/index', ['users' => $users]);
+        return view('admin/users/index', ['users' => $users, 'title' => 'User Management']);
     }
 
     public function create()
     {
-        return view('admin/users/create');
+        return view('admin/users/create', ['title' => 'Create User']);
     }
 
     public function store()
@@ -41,7 +41,7 @@ class UserController extends BaseController
     public function edit($id)
     {
         $user = $this->userModel->find($id);
-        return view('admin/users/edit', ['user' => $user]);
+        return view('admin/users/edit', ['user' => $user,'title' => 'Edit User']);
     }
 
     public function update($id)
