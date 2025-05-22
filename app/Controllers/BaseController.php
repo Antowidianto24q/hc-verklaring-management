@@ -45,5 +45,13 @@ class BaseController extends Controller
 		// Preload any models, libraries, etc, here.
 		//--------------------------------------------------------------------
 		// E.g.: $this->session = \Config\Services::session();
+
+		if (session()->get('isLoggedIn')) {
+			$userId = session()->get('user_id');
+			$userModel = new \App\Models\UserModel();
+			$this->userData = $userModel->getUserWithProfile($userId);
+ 			\Config\Services::renderer()->setData(['user' => $this->userData]);
+
+		}
 	}
 }
