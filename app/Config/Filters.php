@@ -24,6 +24,7 @@ class Filters extends BaseConfig
 	public $aliases = [
 		'csrf'     => \CodeIgniter\Filters\CSRF::class,
 		'toolbar'  => \CodeIgniter\Filters\DebugToolbar::class,
+		'honeypot' => Honeypot::class,
 		'role'     => \App\Filters\RoleFilter::class, // Add this line
 	];
 	
