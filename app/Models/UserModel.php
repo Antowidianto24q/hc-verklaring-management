@@ -12,9 +12,9 @@ class UserModel extends Model
 
     public function getUserWithProfile($userId)
     {
-        return $this->db->table('users')
+        return $this->db->table('profiles')
             ->select('users.id, users.username, users.level, profiles.outlet_name, profiles.address, profiles.email, profiles.phone, profiles.u_id')
-            ->join('profiles', 'profiles.u_id = users.id')
+            ->join('users', 'users.id = profiles.u_id')
             ->where('users.id', $userId)
             ->get()
             ->getRowArray();
