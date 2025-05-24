@@ -20,4 +20,21 @@
     <?= view('layouts/footer') ?>
   </div>
 </body>
+
+<script>
+  function toggleProfileMenu() {
+    const menu = document.getElementById('profileMenu');
+    menu.classList.toggle('hidden');
+  }
+
+  // Optional: hide dropdown when clicking outside
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('profileMenu');
+    const button = e.target.closest('button');
+    if (!e.target.closest('#profileMenu') && (!button || !button.onclick?.toString().includes('toggleProfileMenu'))) {
+      menu.classList.add('hidden');
+    }
+  });
+</script>
+
 </html>
