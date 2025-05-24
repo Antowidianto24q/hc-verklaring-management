@@ -4,10 +4,15 @@
 
   <div class="relative">
     <button onclick="toggleProfileMenu()" class="flex items-center space-x-2 focus:outline-none">
-      <img src="https://ui-avatars.com/api/?name=<?= urlencode($profile['username'] ?? 'User') ?>&background=random" alt="Avatar" class="w-8 h-8 rounded-full">
+      <!-- Replace avatar with a simple user circle icon -->
+      <div class="w-8 h-8 bg-indigo-100 text-indigo-700 rounded-full flex items-center justify-center font-semibold text-sm">
+        <?= substr(esc($profile['username'] ?? 'U'), 0, 1) ?>
+      </div>
       <span class="text-sm text-gray-700 font-medium hidden sm:inline"><?= esc($profile['username'] ?? 'User') ?></span>
-      <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+      <!-- Gear icon instead of down arrow -->
+      <svg class="w-4 h-4 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0-6v2m6.36 1.64l-1.41 1.41M22 12h-2m-1.64 6.36l-1.41-1.41M12 22v-2m-6.36-1.64l1.41-1.41M2 12h2m1.64-6.36l1.41 1.41"/>
       </svg>
     </button>
 
