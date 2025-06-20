@@ -59,6 +59,8 @@ $routes->group('admin', ['filter' => 'role:admin'], function($routes) {
     $routes->get('users/delete/(:num)', 'Admin\UserController::delete/$1');
 });
 
+$routes->get('/verklaringExcel', 'Verklaring\VerklaringController::indexUpload');
+$routes->get('/verklaringMailing', 'Verklaring\VerklaringController::indexMailing');
 
 
 /*

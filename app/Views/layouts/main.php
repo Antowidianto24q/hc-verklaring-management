@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= esc($title ?? 'Dashboard') ?></title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -20,21 +21,30 @@
     <?= view('layouts/footer') ?>
   </div>
 </body>
+<script src="//unpkg.com/alpinejs" defer></script>
 
 <script>
-  function toggleProfileMenu() {
-    const menu = document.getElementById('profileMenu');
-    menu.classList.toggle('hidden');
-  }
+    // Mobile sidebar state management
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('sidebar', () => ({
+        isMobileSidebarOpen: false
+      }));
+    });
 
-  // Optional: hide dropdown when clicking outside
-  document.addEventListener('click', function(e) {
-    const menu = document.getElementById('profileMenu');
-    const button = e.target.closest('button');
-    if (!e.target.closest('#profileMenu') && (!button || !button.onclick?.toString().includes('toggleProfileMenu'))) {
-      menu.classList.add('hidden');
+    // Profile menu toggle function
+    function toggleProfileMenu() {
+      const menu = document.getElementById('profileMenu');
+      menu.classList.toggle('hidden');
     }
-  });
-</script>
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+      const menu = document.getElementById('profileMenu');
+      const button = e.target.closest('button');
+      if (!e.target.closest('#profileMenu') && (!button || !button.onclick?.toString().includes('toggleProfileMenu'))) {
+        menu.classList.add('hidden');
+      }
+    });
+  </script>
 
 </html>
